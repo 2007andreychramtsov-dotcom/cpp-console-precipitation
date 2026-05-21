@@ -21,6 +21,9 @@
     <ClCompile Include="file_reader.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\filter.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constants.h">
@@ -32,12 +35,7 @@
     <ClInclude Include="precipitation.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\precipitation.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\constants.h">
+    <ClInclude Include="..\..\..\..\Downloads\filter.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

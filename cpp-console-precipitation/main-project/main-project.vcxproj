@@ -127,13 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Downloads\filter.cpp" />
     <ClCompile Include="file_reader.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-  <ClInclude Include="constants.h" />
-  <ClInclude Include="file_reader.h" />
-  <ClInclude Include="precipitation.h" />
+    <ClInclude Include="..\..\..\..\Downloads\filter.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="file_reader.h" />
+    <ClInclude Include="precipitation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
