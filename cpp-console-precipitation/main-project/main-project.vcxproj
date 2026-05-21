@@ -130,12 +130,14 @@
     <ClCompile Include="..\..\..\..\Downloads\filter.cpp" />
     <ClCompile Include="file_reader.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Downloads\filter.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="file_reader.h" />
     <ClInclude Include="precipitation.h" />
+    <ClInclude Include="sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

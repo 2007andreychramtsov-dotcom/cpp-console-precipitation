@@ -1,14 +1,16 @@
 #include <stdio.h>
+#include <windows.h>
 #include "constants.h"
 #include "precipitation.h"
 #include "file_reader.h"
 #include "filter.h"
-#include "Windows.h"
+#include "sort.h"
 
 void printMenu() {
     printf("=== Меню ===\n");
     printf("1. Вывести все данные\n");
     printf("2. Фильтрация данных\n");
+    printf("3. Сортировка данных\n");
     printf("0. Выход\n");
     printf("Ваш выбор: ");
 }
@@ -45,10 +47,47 @@ void menuFilter(const Precipitation* data, int count) {
     }
 }
 
+void menuSort(Precipitation* data, int count) {
+    printf("\n--- Выбор метода сортировки ---\n");
+    printf("1. Шейкерная сортировка (Shaker sort)\n");
+    printf("2. Быстрая сортировка (Quick sort)\n");
+    printf("Ваш выбор: ");
+
+    int sortChoice = 0;
+    scanf("%d", &sortChoice);
+
+    if (sortChoice < 1 || sortChoice > 2) {
+        printf("Неверный выбор.\n");
+        return;
+    }
+
+    printf("\n--- Выбор критерия сортировки ---\n");
+    printf("1. По возрастанию количества осадков\n");
+    printf("2. По возрастанию характеристики, затем месяца, затем дня\n");
+    printf("Ваш выбор: ");
+
+    int cmpChoice = 0;
+    scanf("%d", &cmpChoice);
+
+    if (cmpChoice < 1 || cmpChoice > 2) {
+        printf("Неверный выбор.\n");
+        return;
+    }
+
+    void (*sortFuncs[])(Precipitation*, int, CompareFunc) = { shakerSort, quickSort };
+    CompareFunc cmpFuncs[] = { compareByAmount, compareByCharacteristicMonthDay };
+
+    sortFuncs[sortChoice - 1](data, count, cmpFuncs[cmpChoice - 1]);
+
+    printf("\nДанные отсортированы.\n");
+    printData(data, count);
+}
+
 int main()
 {
     SetConsoleOutputCP(65001);
     SetConsoleCP(65001);
+    system("cd");
     printf("Laboratory work #8. GIT\n");
     printf("Variant #3. Precipitation\n");
     printf("Author: Andrey Khramtsov\n");
@@ -76,6 +115,9 @@ int main()
             break;
         case 2:
             menuFilter(data, count);
+            break;
+        case 3:
+            menuSort(data, count);
             break;
         case 0:
             printf("Выход из программы.\n");
