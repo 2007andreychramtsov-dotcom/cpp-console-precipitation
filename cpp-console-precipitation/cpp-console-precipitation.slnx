@@ -7,4 +7,5 @@
     <File Path="data.txt" />
   </Folder>
   <Project Path="main-project/main-project.vcxproj" Id="c38a2759-40d2-4696-81b1-58015c5249ba" />
+  <Project Path="unit-test-project/unit-test-project.vcxproj" />
 </Solution>
