@@ -87,7 +87,7 @@ int main()
 {
     SetConsoleOutputCP(65001);
     SetConsoleCP(65001);
-    system("cd");
+    
     printf("Laboratory work #8. GIT\n");
     printf("Variant #3. Precipitation\n");
     printf("Author: Andrey Khramtsov\n");
