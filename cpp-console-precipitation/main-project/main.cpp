@@ -5,12 +5,14 @@
 #include "file_reader.h"
 #include "filter.h"
 #include "sort.h"
+#include "processing.h"
 
 void printMenu() {
     printf("=== Меню ===\n");
     printf("1. Вывести все данные\n");
     printf("2. Фильтрация данных\n");
     printf("3. Сортировка данных\n");
+    printf("4. Общее количество осадков за месяц\n");
     printf("0. Выход\n");
     printf("Ваш выбор: ");
 }
@@ -119,7 +121,25 @@ int main()
         case 3:
             menuSort(data, count);
             break;
-        case 0:
+        case 4: {
+            printf("Введите номер месяца (1-12): ");
+            int month;
+            scanf("%d", &month);
+            if (month < 1 || month > 12) {
+                printf("\nОшибка: номер месяца должен быть от 1 до 12.\n\n");
+            }
+            else {
+                double total = process(data, count, month);
+                if (total == 0.0) {
+                    printf("\nЗа месяц %d данных по осадкам не найдено.\n\n", month);
+                }
+                else {
+                    printf("\nОбщее количество осадков за месяц %d: %.2f\n\n",
+                        month, total);
+                }
+            }
+            break;
+        }        case 0:
             printf("Выход из программы.\n");
             break;
         default:
